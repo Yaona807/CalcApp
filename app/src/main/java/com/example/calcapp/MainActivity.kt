@@ -126,7 +126,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
     /* ボタンクリック時の処理を行う関数 */
     override fun onClick(view: View){
-        if(answerText.text.toString() == "Infinity" || answerText.text.toString() == "NaN" && R.id.ac_button != view.id){ //エラー時の処理
+        if((answerText.text.toString() == "Infinity" || answerText.text.toString() == "NaN") && R.id.ac_button != view.id){ //エラー時の処理
             return
         }
         if(numArray[0] == answerText.text.toString()){ //計算結果出力後の処理
