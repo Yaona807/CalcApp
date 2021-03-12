@@ -10,6 +10,7 @@ import java.math.RoundingMode
 class MainActivity : AppCompatActivity(), View.OnClickListener{
     private val numArray = mutableListOf<String>("") //数値格納用配列
     private val symbolArray = mutableListOf<String>("") //記号格納用配列
+    private var zeroFlag = false //ゼロフラグ：true->ゼロ除算を行っている
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,7 +73,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
             val num2:BigDecimal = BigDecimal(numArray[index + 1])
             /* 乗除の計算 */
             when(symbolArray[index]){
-                "÷" -> copyArray.add(num1.divide(num2,15,RoundingMode.HALF_UP).toString() )
+                "÷" -> {
+                    if(num2.compareTo(BigDecimal.ZERO) == 0){
+                        zeroFlag = true
+                        return numArray
+                    }
+                    else {
+                        copyArray.add(num1.divide(num2, 15, RoundingMode.HALF_UP).toString())
+                    }
+                }
                 "×" -> copyArray.add(num1.multiply(num2).toString() )
             }
             /* 残りをそのままコピー */
@@ -132,7 +141,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
     /* ボタンクリック時の処理を行う関数 */
     override fun onClick(view: View){
-        if(answerText.length() == 20 && R.id.ac_button != view.id){ //エラー時の処理
+        if((zeroFlag||answerText.length() == 20) && R.id.ac_button != view.id){ //エラー時の処理
             return
         }
         if(numArray[0] == answerText.text.toString()){ //計算結果出力後の処理
@@ -257,6 +266,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         }
         if(R.id.ac_button == view.id){ //ACのボタンの処理
             clearArray(numArray, symbolArray)
+            //ゼロフラグがtrueの場合は解除
+            if(zeroFlag){
+                zeroFlag = false
+            }
             answerText.text = "0"
         }
         if(R.id.plus_button == view.id){ //+のボタンの処理
@@ -291,7 +304,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
             if(endCheck(answerText.text.toString()) && symbolCheck(answerText.text.toString())) {
                 numArray.add(addArray(answerText.text.toString(), 0, numArray))
                 answerText.text = ""
-                answerText.text = calcArray1(numArray, symbolArray, 1).last()
+                var ans = calcArray1(numArray, symbolArray, 1).last()
+                if(zeroFlag){
+                    ans = "ゼロ除算はできません"
+                }
+                else if(BigDecimal(ans).compareTo(BigDecimal.ZERO) == 0){
+                    ans ="0"
+                }
+                answerText.text = ans
                 clearArray(numArray, symbolArray)
                 numArray.add(answerText.text.toString())
                 numArray.removeAt(0)
