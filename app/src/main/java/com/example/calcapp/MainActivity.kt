@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 class MainActivity : AppCompatActivity(), View.OnClickListener{
     private val numArray = mutableListOf<String>("") //数値格納用配列
@@ -66,10 +68,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
                 if(index == i) break
                 copyArray.add(numArray[i])
             }
+            val num1:BigDecimal = BigDecimal(numArray[index])
+            val num2:BigDecimal = BigDecimal(numArray[index + 1])
             /* 乗除の計算 */
             when(symbolArray[index]){
-                "÷" -> copyArray.add((numArray[index].toDouble() / numArray[index + 1].toDouble()).toString() )
-                "×" -> copyArray.add((numArray[index].toDouble() * numArray[index + 1].toDouble()).toString() )
+                "÷" -> copyArray.add(num1.divide(num2,15,RoundingMode.HALF_UP).toString() )
+                "×" -> copyArray.add(num1.multiply(num2).toString() )
             }
             /* 残りをそのままコピー */
             for(i in index + 2..numArray.lastIndex){
@@ -93,9 +97,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
                 copyArray.add(numArray[i])
             }
             /* 加減の計算 */
+            val num1:BigDecimal = BigDecimal(numArray[index])
+            val num2:BigDecimal = BigDecimal(numArray[index + 1])
             when(symbolArray[index]){
-                "+" -> copyArray.add((numArray[index].toDouble() + numArray[index + 1].toDouble()).toString() )
-                "-" -> copyArray.add((numArray[index].toDouble() - numArray[index + 1].toDouble()).toString() )
+                "+" -> copyArray.add(num1.plus(num2).toString() )
+                "-" -> copyArray.add(num1.minus(num2).toString() )
             }
             /* 残りをそのままコピー */
             for(i in index + 2..numArray.lastIndex){
@@ -126,7 +132,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
     /* ボタンクリック時の処理を行う関数 */
     override fun onClick(view: View){
-        if((answerText.text.toString() == "Infinity" || answerText.text.toString() == "NaN") && R.id.ac_button != view.id){ //エラー時の処理
+        if(answerText.length() == 20 && R.id.ac_button != view.id){ //エラー時の処理
             return
         }
         if(numArray[0] == answerText.text.toString()){ //計算結果出力後の処理
