@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
                         return numArray
                     }
                     else {
-                        copyArray.add(num1.divide(num2, 15, RoundingMode.HALF_UP).toString())
+                        copyArray.add(num1.divide(num2, 7, RoundingMode.HALF_UP).toString())
                     }
                 }
                 "×" -> copyArray.add(num1.multiply(num2).toString() )
@@ -141,7 +141,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
     /* ボタンクリック時の処理を行う関数 */
     override fun onClick(view: View){
-        if((zeroFlag||answerText.length() == 20) && R.id.ac_button != view.id){ //エラー時の処理
+        if((zeroFlag||answerText.length() == 20) && (R.id.ac_button != view.id&&R.id.equal_button != view.id)){ //エラー時の処理
             return
         }
         if(numArray[0] == answerText.text.toString()){ //計算結果出力後の処理
