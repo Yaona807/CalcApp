@@ -10,7 +10,8 @@ import java.math.RoundingMode
 class MainActivity : AppCompatActivity(), View.OnClickListener{
     private val numArray = mutableListOf<String>("") //数値格納用配列
     private val symbolArray = mutableListOf<String>("") //記号格納用配列
-    private var zeroFlag = false //ゼロフラグ：true->ゼロ除算を行っている
+    private var zeroDivisionFlag = false //フラグ：true->ゼロ除算を行っている
+    private var zeroFlag = false //フラグ：true->数値の先頭がゼロ
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,7 +76,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
             when(symbolArray[index]){
                 "÷" -> {
                     if(num2.compareTo(BigDecimal.ZERO) == 0){
-                        zeroFlag = true
+                        zeroDivisionFlag = true
                         return numArray
                     }
                     else {
@@ -141,8 +142,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
     /* ボタンクリック時の処理を行う関数 */
     override fun onClick(view: View){
-        if((zeroFlag||answerText.length() == 20) && (R.id.ac_button != view.id&&R.id.equal_button != view.id)){ //エラー時の処理
+        if((zeroDivisionFlag||answerText.length() == 25) && (R.id.ac_button != view.id&&R.id.equal_button != view.id)){ //エラー時の処理
             return
+        }
+        if(zeroFlag){//先頭がゼロのときの入力制限
+            zeroFlag = when(view.id){
+                R.id.dot_button -> false
+                R.id.ac_button -> false
+                R.id.equal_button -> false
+                R.id.plus_button -> false
+                R.id.minus_button -> false
+                R.id.division_button -> false
+                R.id.multi_button -> false
+                else -> return
+            }
         }
         if(numArray[0] == answerText.text.toString()){ //計算結果出力後の処理
             when(view.id){
@@ -184,6 +197,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         }
         if(R.id.button0 == view.id){ //0のボタンの処理
             if(addArray(answerText.text.toString(),0,numArray) != "0"){
+                val checkStr = answerText.text.toString().takeLast(1)
+                if(checkStr == "+" || checkStr == "-" || checkStr == "×" || checkStr == "÷"){
+                    zeroFlag = true
+                }
                 answerText.text = answerText.text.toString() +"0"
             }
         }
@@ -266,10 +283,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         }
         if(R.id.ac_button == view.id){ //ACのボタンの処理
             clearArray(numArray, symbolArray)
-            //ゼロフラグがtrueの場合は解除
-            if(zeroFlag){
-                zeroFlag = false
-            }
+            zeroDivisionFlag = false
             answerText.text = "0"
         }
         if(R.id.plus_button == view.id){ //+のボタンの処理
@@ -305,7 +319,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
                 numArray.add(addArray(answerText.text.toString(), 0, numArray))
                 answerText.text = ""
                 var ans = calcArray1(numArray, symbolArray, 1).last()
-                if(zeroFlag){
+                if(zeroDivisionFlag){
                     ans = "ゼロ除算はできません"
                 }
                 else if(BigDecimal(ans).compareTo(BigDecimal.ZERO) == 0){
