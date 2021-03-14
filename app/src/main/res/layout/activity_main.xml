@@ -47,7 +47,7 @@
                 android:background="#222222"
                 android:text="7"
                 android:textColor="#EDEDED"
-                android:textSize="24sp" />
+                android:textSize="36sp" />
 
             <Button
                 android:id="@+id/button8"
@@ -57,7 +57,7 @@
                 android:background="#222222"
                 android:text="8"
                 android:textColor="#EDEDED"
-                android:textSize="24sp" />
+                android:textSize="36sp" />
 
             <Button
                 android:id="@+id/button9"
@@ -67,7 +67,7 @@
                 android:background="#222222"
                 android:text="9"
                 android:textColor="#EDEDED"
-                android:textSize="24sp" />
+                android:textSize="36sp" />
 
             <Space
                 android:layout_width="match_parent"
@@ -80,7 +80,7 @@
                 android:background="#222222"
                 android:text="AC"
                 android:textColor="#EDEDED"
-                android:textSize="24sp" />
+                android:textSize="30sp" />
 
         </TableRow>
 
@@ -97,7 +97,7 @@
                 android:background="#222222"
                 android:text="4"
                 android:textColor="#EDEDED"
-                android:textSize="24sp" />
+                android:textSize="36sp" />
 
             <Button
                 android:id="@+id/button5"
@@ -107,7 +107,7 @@
                 android:background="#222222"
                 android:text="5"
                 android:textColor="#EDEDED"
-                android:textSize="24sp" />
+                android:textSize="36sp" />
 
             <Button
                 android:id="@+id/button6"
@@ -117,7 +117,7 @@
                 android:background="#222222"
                 android:text="6"
                 android:textColor="#EDEDED"
-                android:textSize="24sp" />
+                android:textSize="36sp" />
 
             <Button
                 android:id="@+id/plus_button"
@@ -126,7 +126,7 @@
                 android:background="#222222"
                 android:text="+"
                 android:textColor="#EDEDED"
-                android:textSize="24sp" />
+                android:textSize="36sp" />
 
             <Button
                 android:id="@+id/minus_button"
@@ -135,7 +135,7 @@
                 android:background="#222222"
                 android:text="-"
                 android:textColor="#EDEDED"
-                android:textSize="24sp" />
+                android:textSize="36sp" />
         </TableRow>
 
         <TableRow
@@ -151,7 +151,7 @@
                 android:background="#222222"
                 android:text="1"
                 android:textColor="#EDEDED"
-                android:textSize="24sp" />
+                android:textSize="36sp" />
 
             <Button
                 android:id="@+id/button2"
@@ -161,7 +161,7 @@
                 android:background="#222222"
                 android:text="2"
                 android:textColor="#EDEDED"
-                android:textSize="24sp" />
+                android:textSize="36sp" />
 
             <Button
                 android:id="@+id/button3"
@@ -171,7 +171,7 @@
                 android:background="#222222"
                 android:text="3"
                 android:textColor="#EDEDED"
-                android:textSize="24sp" />
+                android:textSize="36sp" />
 
             <Button
                 android:id="@+id/division_button"
@@ -180,7 +180,7 @@
                 android:background="#222222"
                 android:text="÷"
                 android:textColor="#EDEDED"
-                android:textSize="24sp" />
+                android:textSize="36sp" />
 
             <Button
                 android:id="@+id/multi_button"
@@ -189,7 +189,7 @@
                 android:background="#222222"
                 android:text="×"
                 android:textColor="#EDEDED"
-                android:textSize="24sp" />
+                android:textSize="36sp" />
         </TableRow>
 
         <TableRow
@@ -205,7 +205,7 @@
                 android:background="#222222"
                 android:text="0"
                 android:textColor="#EDEDED"
-                android:textSize="24sp" />
+                android:textSize="36sp" />
 
             <Button
                 android:id="@+id/dot_button"
@@ -214,7 +214,8 @@
                 android:layout_weight="0.2"
                 android:background="#222222"
                 android:text="･"
-                android:textSize="24sp" />
+                android:textColor="#EDEDED"
+                android:textSize="36sp" />
 
             <Space
                 android:layout_width="match_parent"
@@ -232,7 +233,7 @@
                 android:background="#222222"
                 android:text="="
                 android:textColor="#EDEDED"
-                android:textSize="24sp" />
+                android:textSize="36sp" />
 
         </TableRow>
 
