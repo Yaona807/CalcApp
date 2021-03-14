@@ -45,6 +45,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.4"
                 android:background="#222222"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:text="7"
                 android:textColor="#EDEDED"
                 android:textSize="36sp" />
@@ -55,6 +56,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.2"
                 android:background="#222222"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:text="8"
                 android:textColor="#EDEDED"
                 android:textSize="36sp" />
@@ -65,6 +67,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.2"
                 android:background="#222222"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:text="9"
                 android:textColor="#EDEDED"
                 android:textSize="36sp" />
@@ -78,6 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#222222"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:text="AC"
                 android:textColor="#EDEDED"
                 android:textSize="30sp" />
@@ -95,6 +99,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.4"
                 android:background="#222222"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:text="4"
                 android:textColor="#EDEDED"
                 android:textSize="36sp" />
@@ -105,6 +110,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.2"
                 android:background="#222222"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:text="5"
                 android:textColor="#EDEDED"
                 android:textSize="36sp" />
@@ -115,6 +121,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.2"
                 android:background="#222222"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:text="6"
                 android:textColor="#EDEDED"
                 android:textSize="36sp" />
@@ -124,6 +131,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#222222"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:text="+"
                 android:textColor="#EDEDED"
                 android:textSize="36sp" />
@@ -133,6 +141,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#222222"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:text="-"
                 android:textColor="#EDEDED"
                 android:textSize="36sp" />
@@ -149,6 +158,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.4"
                 android:background="#222222"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:text="1"
                 android:textColor="#EDEDED"
                 android:textSize="36sp" />
@@ -159,6 +169,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.2"
                 android:background="#222222"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:text="2"
                 android:textColor="#EDEDED"
                 android:textSize="36sp" />
@@ -169,6 +180,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.2"
                 android:background="#222222"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:text="3"
                 android:textColor="#EDEDED"
                 android:textSize="36sp" />
@@ -178,6 +190,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#222222"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:text="÷"
                 android:textColor="#EDEDED"
                 android:textSize="36sp" />
@@ -187,6 +200,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#222222"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:text="×"
                 android:textColor="#EDEDED"
                 android:textSize="36sp" />
@@ -203,6 +217,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.4"
                 android:background="#222222"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:text="0"
                 android:textColor="#EDEDED"
                 android:textSize="36sp" />
@@ -213,6 +228,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.2"
                 android:background="#222222"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:text="･"
                 android:textColor="#EDEDED"
                 android:textSize="36sp" />
@@ -231,6 +247,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#222222"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:text="="
                 android:textColor="#EDEDED"
                 android:textSize="36sp" />
